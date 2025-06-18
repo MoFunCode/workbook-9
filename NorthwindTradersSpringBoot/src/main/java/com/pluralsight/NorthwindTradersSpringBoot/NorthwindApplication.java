@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 
 @Component
-public class NorthwindApplication implements CommandLineRunner {
+public class NorthwindApplication implements CommandLineRunner{
 
     private final IProductDao productDao;
     private final Scanner scanner;
@@ -27,9 +27,9 @@ public class NorthwindApplication implements CommandLineRunner {
         Boolean whileRunning = true;
 
         while (whileRunning) {
-            System.out.println("\n Choose an option:");
             System.out.println("1. List Products");
             System.out.println("2. Add Product");
+            System.out.println("Choose an option bro:");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -78,6 +78,14 @@ public class NorthwindApplication implements CommandLineRunner {
         productDao.add(newProduct);
 
         System.out.println("Product added successfully!");
+    }
+
+    public void removeProductByID(){
+        System.out.println("Enter product ID to remove: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+
     }
 }
 
