@@ -2,6 +2,7 @@ package com.pluralsight.NorthwindTradersAPI.controller;
 
 import com.pluralsight.NorthwindTradersAPI.model.Product;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -25,10 +26,16 @@ public class ProductController {
     @GetMapping("/products")
     public List<Product> getAllProducts() {
         return products;
-
     }
 
-
-
+    @GetMapping("/product/{id}")
+    public Product getProductById(@PathVariable int id) {
+        for (Product product : products) {
+            if (product.getProductId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
 
 }
